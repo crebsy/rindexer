@@ -3,7 +3,7 @@ name: Build & publish docker image
 on:
   push:
     branches:
-      - master
+      - test-docker
 
 env:
   REGISTRY: ghcr.io
@@ -11,13 +11,15 @@ env:
 
 jobs:
   build:
-    if: startsWith(github.event.ref, 'refs/heads/release/')
+    #if: startsWith(github.event.ref, 'refs/heads/release/')
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
 
     steps:
+      - name: Echo github obj
+        run: echo ${{ toJson(github) }}
       - name: Checkout repository
         uses: actions/checkout@v4
 
