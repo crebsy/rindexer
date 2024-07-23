@@ -20,8 +20,8 @@ jobs:
       packages: write
 
     steps:
-      - name: Echo github obj
-        run: echo ${{ toJson(github) }}
+      #- name: Echo github obj
+      #  run: echo ${{ toJson(github) }}
       - name: Checkout repository
         uses: actions/checkout@v4
 
